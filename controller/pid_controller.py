@@ -76,7 +76,7 @@ def steering_wheel_controller(number_of_lanes:int, angle_value:int, y_position:i
             elif algorithm == "high_speed":
                 if abs(angle_value) + abs(y_position) > 5:
                     # error_total = angle_value + y_position
-                    velocity = 0.1
+                    velocity = 0.15
                     Kp_angle_value = 0.01
                     Kp_y_position = 0.005
                     
@@ -107,7 +107,7 @@ def steering_wheel_controller(number_of_lanes:int, angle_value:int, y_position:i
                     old_y_position = y_position
                 
                 else:
-                    velocity = 0.1
+                    velocity = 0.15
                     rotation_speed = 0
                     # print(f"angle_value = {angle_value} y_position = {y_position}")
                     
