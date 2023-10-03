@@ -77,28 +77,35 @@ def steering_wheel_controller(number_of_lanes:int, angle_value:int, y_position:i
                 if abs(angle_value) + abs(y_position) > 5:
                     # error_total = angle_value + y_position
                     velocity = 0.1
-                    Kp_angle_value = 0.01 
+                    Kp_angle_value = 0.01
                     Kp_y_position = 0.005
-                    Ki_angle_value = 0.0
-                    Ki_y_position = 0.0
+                    
                     Kd_angle_value = 0.01
                     Kd_y_position = 0.01
+                    
+                    
                     dt = 1
+                    
+                    Ki_angle_value = 0.0
+                    Ki_y_position = 0.0
+                    
                     p = Kp_angle_value * angle_value + Kp_y_position* y_position 
-                    d = Kd_angle_value * (old_angle_value - angle_value) * dt + Kd_y_position * (old_y_position - y_position) * dt
+                    d_angle_value = angle_value - old_angle_value
+                    d_y_position = y_position - old_y_position
+                    d = Kd_angle_value * d_angle_value + Kd_y_position * d_y_position
+                    
                     sum_error_angle_value = sum_error_angle_value + angle_value * dt
                     sum_error_y_position = sum_error_y_position + y_position * dt
+                    
                     i_angle_value = Ki_angle_value * sum_error_angle_value 
                     i_y_position = Ki_y_position * sum_error_y_position 
                     i =  i_angle_value + i_y_position
                     rotation_speed = p + i + d
-                    # print(f"angle_value = {angle_value} y_position = {y_position} p = {p:.4f} d  = {d:.4f} i = {i:.4f}")
+                    print(f"angle_value = {angle_value} \t y_position = {y_position}\trotation_speed= {rotation_speed:.4f}\t p = {p:.4f} \t d  = {d:.4f} \td_angle = {d_angle_value} \td_y_position =  {d_y_position}")
 
                     old_angle_value = angle_value
                     old_y_position = y_position
-
-
-
+                
                 else:
                     velocity = 0.1
                     rotation_speed = 0

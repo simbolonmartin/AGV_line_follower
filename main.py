@@ -31,6 +31,7 @@ if __name__ == "__main__":
                 time.sleep(2)
                 break
             # print(counter)
+            
             # counter+=1
             # if PGV.number_of_lanes == 0:
             #     counter_finding_no_line +=1
