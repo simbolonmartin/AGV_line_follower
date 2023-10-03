@@ -38,7 +38,7 @@ def steering_wheel_controller(number_of_lanes:int, angle_value:int, y_position:i
         # print(f'{number_of_lanes} lane(s) are detected. It has to be 1')
         print(f'Stopping point detected')
         velocity = 0.00
-        rotation_speed = 0 
+        rotation_speed = 0.0 
         
     else:
         if pgv_position == "front":
@@ -74,10 +74,11 @@ def steering_wheel_controller(number_of_lanes:int, angle_value:int, y_position:i
                     velocity = 0.03
                     rotation_speed = 0
             elif algorithm == "high_speed":
+                velocity = 0.21
                 if abs(angle_value) + abs(y_position) > 5:
                     # error_total = angle_value + y_position
-                    velocity = 0.17
-                    Kp_angle_value = 0.01
+                    
+                    Kp_angle_value = 0.005
                     Kp_y_position = 0.005
                     
                     Kd_angle_value = 0.01
@@ -100,16 +101,17 @@ def steering_wheel_controller(number_of_lanes:int, angle_value:int, y_position:i
                     i_y_position = Ki_y_position * sum_error_y_position 
                     i =  i_angle_value + i_y_position
                     rotation_speed = p + i + d
-                    print(f"angle_value = {angle_value} \t y_position = {y_position}\t   rotation_speed= {rotation_speed:.4f}\t p = {p:.4f} \t d  = {d:.4f} \td_angle = {d_angle_value} \td_y_position =  {d_y_position}")
+                    # print(f"angle_value = {angle_value} \t y_position = {y_position}\t   rotation_speed= {rotation_speed:.4f}\t p = {p:.4f} \t d  = {d:.4f} \td_angle = {d_angle_value} \td_y_position =  {d_y_position}")
 
                     old_angle_value = angle_value
                     old_y_position = y_position
                 
                 else:
-                    velocity = 0.17
+                    
                     rotation_speed = 0
                     # print(f"angle_value = {angle_value} y_position = {y_position}")
-                    
+                    old_angle_value = angle_value
+                    old_y_position = y_position
     # print(f"velocity: {velocity} \t rotation_speed {rotation_speed}")
 
     # velocity = 0
