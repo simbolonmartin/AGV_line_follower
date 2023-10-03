@@ -13,7 +13,7 @@ pi = 3.1415926
 shaft_radius = 0.006
 RW_rpm = None
 LW_rpm = None
-accel_deccel_value = 10#1000 #low speed
+accel_deccel_value = 20#1000 #10=low speed
 
 max_wheel_rpm = 85
 # usb_port = "/dev/ttyUSB2"
