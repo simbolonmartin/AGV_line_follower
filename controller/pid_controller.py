@@ -71,7 +71,7 @@ def steering_wheel_controller(number_of_lanes:int, angle_value:int, y_position:i
                     velocity = 0.03
                     rotation_speed = Kp_angle_value * angle_value + Kp_y_position* y_position
                 else:
-                    velocity = 0.025
+                    velocity = 0.25
                     rotation_speed = 0
             elif algorithm == "high_speed":
                 velocity = 0.3
