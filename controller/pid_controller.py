@@ -71,10 +71,10 @@ def steering_wheel_controller(number_of_lanes:int, angle_value:int, y_position:i
                     velocity = 0.03
                     rotation_speed = Kp_angle_value * angle_value + Kp_y_position* y_position
                 else:
-                    velocity = 0.03
+                    velocity = 0.025
                     rotation_speed = 0
             elif algorithm == "high_speed":
-                velocity = 0.2
+                velocity = 0.3
                 if abs(angle_value) + abs(y_position) > 5:
                     # error_total = angle_value + y_position
                     
@@ -82,7 +82,7 @@ def steering_wheel_controller(number_of_lanes:int, angle_value:int, y_position:i
                     Kp_y_position = 0.005
                     
                     Kd_angle_value = 0.02
-                    Kd_y_position = 0.01
+                    Kd_y_position = 0.015
                        
                     dt = 1
                     
