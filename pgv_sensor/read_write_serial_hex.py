@@ -114,10 +114,14 @@ class PGVCommunication():
             self.send_message(self.position_value)
             self.read_message()
             self.calculate()
-            time.sleep(0.1)
+            # time.sleep(0.1) #removedelay
         except Exception as error:
             print(error)
         
+    def loop_update_value(self):
+        while True:
+            self.update_value()
+    
 if __name__ == "__main__":
     PGVCommunicationObject = PGVCommunication()
     PGVCommunicationObject.stream_value()
