@@ -19,7 +19,7 @@
 #define BAUDRATE B115200 
 // #define MODEMDEVICE "/dev/ttyUSB0"
 // #define MODEMDEVICE "/dev/ttyUSB1"
-#define MODEMDEVICE "/dev/ttyUSB2"
+#define MODEMDEVICE "/dev/motor"
 
 #define _POSIX_SOURCE 1
 #define STOP '@'

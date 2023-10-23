@@ -79,7 +79,7 @@ def steering_wheel_controller(number_of_lanes:int, angle_value:int, y_position:i
                     # error_total = angle_value + y_position
                     
                     Kp_angle_value = 0.015
-                    Kp_y_position = 0.006
+                    Kp_y_position = 0.0055
                     
                     Kd_angle_value = 0.02
                     Kd_y_position = 0.04

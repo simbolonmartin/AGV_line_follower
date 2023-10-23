@@ -355,11 +355,19 @@ if __name__ == "__main__":
     # time.sleep(1)
     # handle.go(0.0, 0)
     # time.sleep(1)
-
-    # handle.go(0.1, 0)
-    # time.sleep(2)
-    # handle.go(0.0, 0)
-    # time.sleep(1)
+    try:
+        print("0.1")
+        handle.go(0.05, 0)
+        time.sleep(2)
+        print("0.0")
+        handle.go(0.1, 0)
+        time.sleep(1)
+        print("0.1")
+        handle.go(0.2, 0)
+        time.sleep(1)
+    except KeyboardInterrupt:
+        handle.close_driver()
+        handle.close_port() 
     # move forward and stop
     # handle.travel(0.4, 0, 1.5)
     # print("0.2")
