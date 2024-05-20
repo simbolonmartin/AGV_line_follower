@@ -1,7 +1,0 @@
-{
-    "python.analysis.extraPaths": [
-        "./pgv_sensor",
-        "./motor_driver",
-        "./controller"
-    ]
-}
